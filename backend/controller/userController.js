@@ -11,6 +11,16 @@ exports.index = (req,res) => {
     });
 };
 
+//get one user list by id
+exports.read = (req,res) => {
+    console.log('user list');
+    userModel.findOne({where: { id: req.params.id }}).then(result => {
+        res.status(200).json(result);
+    }).catch(error =>{
+        res.status(500).json({ message: "Something went wrong!" });
+    });
+};
+
 //create user
 exports.create = (req, res) => {
     console.log('add user');

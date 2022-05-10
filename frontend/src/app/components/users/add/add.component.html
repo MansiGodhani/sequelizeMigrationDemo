@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <button class="btn btn-secondary mt-2 mb-2" routerLinkActive="active" routerLink="/list">Back</button>
+  <h4>  {{userId ? 'Edit' : 'Add'}} User </h4>
+  <form [formGroup]="userForm" (ngSubmit)="userForm.valid && submit()" novalidate >
+    <div class="form-group">
+      <label for="firstName"> First Name </label>
+      <input id="firstName" type="text" name="firstName" class="form-control" formControlName="firstName" required >
+      <div *ngIf="!firstNameError.valid && (firstNameError.dirty || firstNameError.touched)">
+        <div  [hidden]="!firstNameError.errors['required']"  class="alert alert-danger mt-1 p-1"> First Name Required </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName"> Last Name</label>
+      <input id="lastName" type="text" name="lastName" class="form-control" formControlName="lastName" required >
+      <div *ngIf="!lastNameError.valid && (lastNameError.dirty || lastNameError.touched)">
+        <div  [hidden]="!lastNameError.errors['required']"  class="alert alert-danger mt-1 p-1"> Last Name Required </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email"> Email </label>
+      <input id="email" type="email" name="email" class="form-control" formControlName="email" required>
+      <div *ngIf="!emailError.valid && (emailError.dirty || emailError.touched)">
+        <div  [hidden]="!emailError.errors['required']"  class="alert alert-danger mt-1 p-1"> Email Required </div>
+      </div>
+    </div>
+    <pre></pre>
+    <div>
+      <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Submit</button>
+      <button class="btn btn-secondary m-2" type="reset" [hidden]="userId">Cancel</button>
+    </div>
+  </form>
+</div>

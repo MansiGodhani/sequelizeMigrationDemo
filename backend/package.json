@@ -21,6 +21,7 @@
     "commander": "^2.20.3",
     "concat-map": "^0.0.1",
     "config-chain": "^1.1.13",
+    "cors": "^2.8.5",
     "d": "^1.0.1",
     "dotenv": "^16.0.0",
     "editorconfig": "^0.15.3",
