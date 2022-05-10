@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <button class="btn btn-secondary mt-2 mb-2" routerLinkActive="active" routerLink="/list">Back</button>
+  <button class="btn btn-secondary mt-2 mb-2" routerLinkActive="active" [routerLink]="['/users/list']">Back</button>
   <h4>  {{userId ? 'Edit' : 'Add'}} User </h4>
   <form [formGroup]="userForm" (ngSubmit)="userForm.valid && submit()" novalidate >
     <div class="form-group">

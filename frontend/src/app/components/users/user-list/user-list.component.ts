@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {UserDelete, UsersList} from "../../stores/user/user.actions";
-import {User} from "../../models/user.model";
+import {User} from "../../../models/user.model";
 import {Subject, takeUntil} from "rxjs";
 import {select, Store} from "@ngrx/store";
-import {IUsersState} from "../../stores/user/user.state";
-import {getUserError, getUsers, getUserSuccess} from "../../stores/user/user.selectors";
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import {IUsersState} from "../../../stores/user/user.state";
+import {getUserError, getUsers, getUserSuccess} from "../../../stores/user/user.selectors";
+import {UserDelete, UsersList} from "../../../stores/user/user.actions";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class UsersComponent implements OnInit {
-
+export class UserListComponent implements OnInit {
   users: User[] = [];
   unSubscriber = new Subject();
   dtOptions: DataTables.Settings = {};
@@ -78,7 +77,7 @@ export class UsersComponent implements OnInit {
   deleteUser(id){
     console.log('----',id);
     Swal.fire({
-      title: 'Are you sure?',
+      title: 'Are you sure delete this?',
       type: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes',

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="d-flex">
       <h2 class="m-auto text-center">All Users Details</h2>
-      <button class="btn btn-primary mt-2" [routerLink]="['/add']"> Add User </button>
+      <button class="btn btn-primary mt-2" [routerLink]="['/users/add']"> Add User </button>
     </div>
     <pre></pre>
     <table datatable [dtOptions]="dtOptions" class=" row-border hover mt-3">
@@ -22,7 +22,7 @@
         <td> {{ user?.firstName }} </td>
         <td> {{ user?.lastName }} </td>
         <td> {{ user?.email}} </td>
-        <td> <button class="btn btn-success" [routerLink]="['/edit/', user['id']]" > Edit </button></td>
+        <td> <button class="btn btn-success" [routerLink]="['/users/edit/', user['id']]" > Edit </button></td>
         <td> <button class="btn btn-danger" (click)="deleteUser(user['id'])"> Delete </button></td>
       </tr>
       </tbody>
