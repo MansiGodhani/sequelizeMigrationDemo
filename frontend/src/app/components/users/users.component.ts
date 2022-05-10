@@ -77,7 +77,6 @@ export class UsersComponent implements OnInit {
 
   deleteUser(id){
     console.log('----',id);
-    // this.userStore.dispatch(UserDelete({id}));
     Swal.fire({
       title: 'Are you sure?',
       type: 'warning',
